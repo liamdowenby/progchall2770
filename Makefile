@@ -1,18 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic
-
-TARGET = Total_Time
-
-SRCS = Total_Time.c
+CFLAGS = -Wall -pthread
+SRCS = ThreadedMatrixMultiply.c
 OBJS = $(SRCS:.c=.o)
+TARGET = ThreadedMatrixMultiply
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+$(TARGET): $(OBJS) 
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
 	rm -f $(OBJS) $(TARGET)
