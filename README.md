@@ -1,7 +1,7 @@
 # progchall2770
 Welcome to my repository for my Programming Challenges for CSC 2770!
 
-Each challenge is divided into its own folder with the required C program(s) and Makefile. 
+Each challenge is divided into its own branch with the required C program(s) and Makefile. 
 I included the instructions just in case with each challenge.
 
 Note: for challenge 2, two SSH windows must be open. 
