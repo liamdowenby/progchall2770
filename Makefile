@@ -1,16 +1,13 @@
 CC = gcc
-CFLAGS = -Wall -pthread
-SRCS = ThreadedMatrixMultiply.c
-OBJS = $(SRCS:.c=.o)
-TARGET = ThreadedMatrixMultiply
+CFLAGS = -Wall -Wextra -pthread
 
-all: $(TARGET)
+all: HTTP_Server HTTP_Client
 
-$(TARGET): $(OBJS) 
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET)
+HTTP_Server: HTTP_Server.c
+	$(CC) $(CFLAGS) -o HTTP_Server HTTP_Server.c
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ 
+HTTP_Client: HTTP_Client.c
+	$(CC) $(CFLAGS) -o HTTP_Client HTTP_Client.c
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f HTTP_Server HTTP_Client
